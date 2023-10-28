@@ -1,4 +1,4 @@
-package Lab1;// Example 5: ShowTwoNumbers.java
+package Lab01;// Example 5: ShowTwoNumbers.java
 import javax.swing.JOptionPane;
 public class ShowTwoNumbers {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Lab1;
+package Lab01;
 
 public class AddMatrices {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package Lab1;
+package Lab01;
 
 import javax.swing.*;
 public class FirstDegreeEquation {
