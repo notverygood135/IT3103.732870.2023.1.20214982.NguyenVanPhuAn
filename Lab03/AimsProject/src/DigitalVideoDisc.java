@@ -1,6 +1,6 @@
 public class DigitalVideoDisc {
     //Nguyen Van Phu An 20214982
-    private static int nbDigitalVideoDiscs = 0;
+    private static int nbDigitalVideoDiscs = 1;
     private String title;
     private String category;
     private String director;
@@ -20,6 +20,10 @@ public class DigitalVideoDisc {
 
     public DigitalVideoDisc(String title) {
         this.title = title;
+    }
+
+    public String toString() {
+        return "DVD - " + title + " - " + category + " - " + director + " - " + length + ": " + cost + " $";
     }
 
     public String getTitle() {
