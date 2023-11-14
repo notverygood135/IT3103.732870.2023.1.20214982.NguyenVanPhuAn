@@ -10,9 +10,9 @@ public class Aims {
         cart.addDigitalVideoDisc(dvd1);
         cart.addDigitalVideoDisc(dvd2);
 
-        cart.cartDetails();
+        cart.printCart();
         cart.addDigitalVideoDisc(dvd3);
         cart.removeDigitalVideoDisc(dvd1);
-        cart.cartDetails();
+        cart.printCart();
     }
 }
