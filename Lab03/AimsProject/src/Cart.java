@@ -45,7 +45,7 @@ public class Cart {
     public void cartDetails() {
         System.out.println("DVDs in cart:");
         for (DigitalVideoDisc disc : digitalVideoDiscs) {
-            System.out.println(disc.getTitle());
+            System.out.println(disc.getId() + " " + disc.getTitle());
         }
         System.out.println("Total cost: " + calculateTotalCost());
     }
