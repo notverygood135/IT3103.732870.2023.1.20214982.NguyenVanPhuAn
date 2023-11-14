@@ -17,6 +17,24 @@ public class Cart {
         System.out.println("**************************************************");
     }
 
+    public DigitalVideoDisc searchByID(int id) {
+        for (DigitalVideoDisc disc : digitalVideoDiscs) {
+            if (disc.getId() == id) {
+                return disc;
+            }
+        }
+        return null;
+    }
+
+    public DigitalVideoDisc searchByTitle(String title) {
+        for (DigitalVideoDisc disc : digitalVideoDiscs) {
+            if (disc.getTitle().equals(title)) {
+                return disc;
+            }
+        }
+        return null;
+    }
+
     public void addDigitalVideoDisc(DigitalVideoDisc disc) {
         // Add disc to cart if the cart is not full
         if (discCount < MAX_ITEM) {
