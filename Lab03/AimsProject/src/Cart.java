@@ -17,6 +17,21 @@ public class Cart {
         }
     }
 
+    // Add a list of DVDs
+//    public void addDigitalVideoDisc(DigitalVideoDisc[] discs) {
+//
+//    }
+
+    // Add an arbitrary number of DVDs
+//    public void addDigitalVideoDisc(DigitalVideoDisc ... disc) {
+//
+//    }
+
+    // Add 2 DVDs
+//    public void addDigitalVideoDisc(DigitalVideoDisc disc1, DigitalVideoDisc disc2) {
+//
+//    }
+
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
         // Remove disc from cart if it exists in the cart and the cart isn't empty
         if (discCount == 0) {
