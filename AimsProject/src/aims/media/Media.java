@@ -1,13 +1,19 @@
 package AimsProject.src.aims.media;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public abstract class Media {
     private int id;
     private String title;
     private String category;
     private float cost;
+    private static int nbDigitalVideoDiscs = 1;
+
+    public Media(String title, String category, float cost) {
+        this.id = nbDigitalVideoDiscs;
+        this.title = title;
+        this.category = category;
+        this.cost = cost;
+        nbDigitalVideoDiscs++;
+    }
 
     public int getId() {
         return id;

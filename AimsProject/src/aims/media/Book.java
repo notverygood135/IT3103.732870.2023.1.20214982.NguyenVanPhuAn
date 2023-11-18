@@ -6,10 +6,8 @@ import java.util.List;
 public class Book extends Media {
     private List<String> authors = new ArrayList<String>();
 
-    public Book(int id, String title, float cost, List<String> authors) {
-        this.setId(id);
-        this.setTitle(title);
-        this.setCost(cost);
+    public Book(String title, float cost, List<String> authors) {
+        super(title, title, cost);
         this.authors = authors;
     }
 
