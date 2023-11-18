@@ -22,6 +22,10 @@ public class DigitalVideoDisc {
         this.title = title;
     }
 
+    public String toString() {
+        return "DVD - " + title + " - " + category + " - " + director + " - " + length + ": " + cost + " $";
+    }
+
     public String getTitle() {
         return title;
     }
