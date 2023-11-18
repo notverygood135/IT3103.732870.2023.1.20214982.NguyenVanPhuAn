@@ -1,6 +1,6 @@
 package AimsProject.src.aims.store;
 
-import AimsProject.src.aims.disc.DigitalVideoDisc;
+import AimsProject.src.aims.media.DigitalVideoDisc;
 
 public class Store {
     //Nguyen Van Phu An 20214982

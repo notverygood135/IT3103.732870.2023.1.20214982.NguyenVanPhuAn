@@ -1,6 +1,6 @@
 package AimsProject.src.test.disc;
 
-import AimsProject.src.aims.disc.DigitalVideoDisc;
+import AimsProject.src.aims.media.DigitalVideoDisc;
 
 public class TestPassingParameter {
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
 package AimsProject.src.aims.cart;
 
-import AimsProject.src.aims.disc.DigitalVideoDisc;
+import AimsProject.src.aims.media.DigitalVideoDisc;
 
 import java.util.LinkedList;
 
