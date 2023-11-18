@@ -17,20 +17,6 @@ public class Cart {
         }
     }
 
-    // Add a list of DVDs
-//    public void addDigitalVideoDisc(DigitalVideoDisc[] discs) {
-//
-//    }
-
-    // Add an arbitrary number of DVDs
-//    public void addDigitalVideoDisc(DigitalVideoDisc ... disc) {
-//
-//    }
-
-    // Add 2 DVDs
-//    public void addDigitalVideoDisc(DigitalVideoDisc disc1, DigitalVideoDisc disc2) {
-//
-//    }
 
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
         // Remove disc from cart if it exists in the cart and the cart isn't empty
@@ -59,7 +45,7 @@ public class Cart {
     public void cartDetails() {
         System.out.println("DVDs in cart:");
         for (DigitalVideoDisc disc : digitalVideoDiscs) {
-            System.out.println(disc.getTitle());
+            System.out.println(disc.getId() + " " + disc.getTitle());
         }
         System.out.println("Total cost: " + calculateTotalCost());
     }
