@@ -1,9 +1,4 @@
-package AimsProject.src.aims;
-
-import AimsProject.src.aims.cart.Cart;
-import AimsProject.src.aims.disc.DigitalVideoDisc;
-
-public class Aims {
+public class CartTest {
     public static void main(String[] args) {
         System.out.println("Nguyen Van Phu An 20214982");
         Cart cart = new Cart();
@@ -16,10 +11,12 @@ public class Aims {
         cart.addDigitalVideoDisc(dvd1);
         cart.addDigitalVideoDisc(dvd2);
         cart.addDigitalVideoDisc(dvd4);
-
-        cart.printCart();
         cart.addDigitalVideoDisc(dvd3);
         cart.removeDigitalVideoDisc(dvd1);
+
         cart.printCart();
+
+        System.out.println(cart.searchByID(2));
+        System.out.println(cart.searchByTitle("DVD four"));
     }
 }
