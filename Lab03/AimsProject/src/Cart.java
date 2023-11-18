@@ -5,6 +5,36 @@ public class Cart {
     public static final int MAX_ITEM = 20; // Maximum number of discs in the cart
     LinkedList<DigitalVideoDisc> digitalVideoDiscs = new LinkedList<>(); // Linked list representing the discs in the cart
     public int discCount = 0; // Current number of discs in the cart
+
+    public void printCart() {
+        System.out.println("***********************CART***********************");
+        System.out.println("Ordered Items");
+        int id = 1;
+        for (DigitalVideoDisc disc : digitalVideoDiscs) {
+            System.out.println(id++ + ". " + disc.toString());
+        }
+        System.out.println(calculateTotalCost());
+        System.out.println("**************************************************");
+    }
+
+    public DigitalVideoDisc searchByID(int id) {
+        for (DigitalVideoDisc disc : digitalVideoDiscs) {
+            if (disc.getId() == id) {
+                return disc;
+            }
+        }
+        return null;
+    }
+
+    public DigitalVideoDisc searchByTitle(String title) {
+        for (DigitalVideoDisc disc : digitalVideoDiscs) {
+            if (disc.getTitle().equals(title)) {
+                return disc;
+            }
+        }
+        return null;
+    }
+
     public void addDigitalVideoDisc(DigitalVideoDisc disc) {
         // Add disc to cart if the cart is not full
         if (discCount < MAX_ITEM) {
@@ -16,7 +46,6 @@ public class Cart {
             System.out.println("Cart is already full!");
         }
     }
-
 
     public void removeDigitalVideoDisc(DigitalVideoDisc disc) {
         // Remove disc from cart if it exists in the cart and the cart isn't empty

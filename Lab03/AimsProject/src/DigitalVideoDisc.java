@@ -1,6 +1,6 @@
 public class DigitalVideoDisc {
     //Nguyen Van Phu An 20214982
-    private static int nbDigitalVideoDiscs = 0;
+    private static int nbDigitalVideoDiscs = 1;
     private String title;
     private String category;
     private String director;
