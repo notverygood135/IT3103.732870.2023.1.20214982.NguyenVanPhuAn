@@ -1,7 +1,6 @@
 package AimsProject.src.aims.media;
 
 public class Disc extends Media {
-
     private String director;
     private int length;
 

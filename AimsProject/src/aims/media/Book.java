@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Book extends Media {
+    // Nguyen Van Phu An 20214982
     private List<String> authors = new ArrayList<String>();
 
     public Book(String title, float cost, List<String> authors) {
@@ -17,5 +18,9 @@ public class Book extends Media {
 
     public void removeAuthor(String author) {
         authors.remove(author);
+    }
+
+    public String toString() {
+        return "Book - " + getTitle() + " - " + getCost() + " $";
     }
 }

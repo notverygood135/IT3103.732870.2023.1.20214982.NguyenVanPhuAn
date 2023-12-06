@@ -12,11 +12,11 @@ public class StoreTest {
         DigitalVideoDisc dvd2 = new DigitalVideoDisc("DVD two", "Biography", "not me", 200, 5.5f);
         DigitalVideoDisc dvd3 = new DigitalVideoDisc("DVD three", "Documentary", "probably me", 300, 6.5f);
 
-        store.addDigitalVideoDisc(dvd1);
-        store.addDigitalVideoDisc(dvd2);
+        store.addMedia(dvd1);
+        store.addMedia(dvd2);
 
-        store.addDigitalVideoDisc(dvd3);
-        store.removeDigitalVideoDisc(dvd1);
+        store.addMedia(dvd3);
+        store.removeMedia(dvd1);
         store.printStore();
     }
 }

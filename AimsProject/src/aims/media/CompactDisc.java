@@ -3,7 +3,8 @@ package AimsProject.src.aims.media;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CompactDisc extends Disc {
+public class CompactDisc extends Disc implements Playable {
+    // Nguyen Van Phu An 20214982
     private String director;
     private int length;
     private String artist;
@@ -19,6 +20,15 @@ public class CompactDisc extends Disc {
 
     public void removeTrack(Track track) {
         tracks.remove(track);
+    }
+
+    @Override
+    public void play() {
+        System.out.println("Playing disc: " + this.getTitle());
+        for (Track track : tracks) {
+            System.out.println("Playing track: " + track.getTitle());
+            System.out.println("Track length: " + track.getLength());
+        }
     }
 
     public String getDirector() {
@@ -43,5 +53,9 @@ public class CompactDisc extends Disc {
 
     public String getArtist() {
         return artist;
+    }
+
+    public String toString() {
+        return "CD - " + getTitle() + " - " + getCategory() + " - " + getDirector() + " - " + getLength() + ": " + getCost() + " $";
     }
 }
