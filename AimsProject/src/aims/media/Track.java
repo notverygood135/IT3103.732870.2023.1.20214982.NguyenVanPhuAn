@@ -1,5 +1,7 @@
 package AimsProject.src.aims.media;
 
+import AimsProject.src.aims.exception.PlayerException;
+
 public class Track implements Playable{
     private String title;
     private int length;
@@ -9,7 +11,7 @@ public class Track implements Playable{
     }
 
     @Override
-    public void play() {
+    public void play() throws PlayerException {
         System.out.println("Playing track: " + this.getTitle());
         System.out.println("Track length: " + this.getLength());
     }

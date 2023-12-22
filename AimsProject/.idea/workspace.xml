@@ -4,7 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e2edf6a-53f9-4110-91cc-19cea4d97ee4" name="Changes" comment="Branch testing" />
+    <list default="true" id="9e2edf6a-53f9-4110-91cc-19cea4d97ee4" name="Changes" comment="Branch testing">
+      <change afterPath="$PROJECT_DIR$/../GUIProject/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GUIProject/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GUIProject/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GUIProject/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GUIProject/src/AWTAccumulator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GUIProject/src/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GUIProject/src/NumberGrid.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GUIProject/src/SwingAccumulator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../GUIProject/swing.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/aims/Aims.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/aims/Aims.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,7 +36,7 @@
         <entry key="$PROJECT_DIR$/../.." value="topic/passing-parameter" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -51,8 +64,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Administrator/Desktop/bttvn/lthdt/IT3103.732870.2023.1.20214982.NguyenVanPhuAn/Lab03/AimsProject"
+    "git-widget-placeholder": "topic/aims-project/playable-interface",
+    "last_opened_file_path": "C:/Users/Administrator/Desktop/bttvn/lthdt/IT3103.732870.2023.1.20214982.NguyenVanPhuAn"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

@@ -1,8 +1,10 @@
 package AimsProject.src.aims.store;
 
+import AimsProject.src.aims.exception.DuplicatedItemException;
 import AimsProject.src.aims.media.DigitalVideoDisc;
 import AimsProject.src.aims.media.Media;
 
+import javax.naming.LimitExceededException;
 import java.util.ArrayList;
 
 public class Store {
@@ -29,7 +31,7 @@ public class Store {
         return null;
     }
 
-    public void addMedia(Media item) {
+    public void addMedia(Media item) throws DuplicatedItemException {
         // Add disc to store if the store is not full
         if (itemsInStore.size() < MAX_ITEM) {
             itemsInStore.add(item);
@@ -53,5 +55,9 @@ public class Store {
                 System.out.println("Item not found in store!");
             }
         }
+    }
+
+    public ArrayList<Media> getItemsInStore() {
+        return itemsInStore;
     }
 }

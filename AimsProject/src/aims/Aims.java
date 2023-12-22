@@ -1,256 +1,105 @@
 package AimsProject.src.aims;
 
-import AimsProject.src.aims.cart.Cart;
-import AimsProject.src.aims.media.DigitalVideoDisc;
-import AimsProject.src.aims.media.Media;
-import AimsProject.src.aims.media.Playable;
-import AimsProject.src.aims.store.Store;
-
+import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.swing.JOptionPane;
+
+import AimsProject.src.aims.cart.Cart;
+import AimsProject.src.aims.exception.DuplicatedItemException;
+import AimsProject.src.aims.media.Book;
+import AimsProject.src.aims.media.CompactDisc;
+import AimsProject.src.aims.media.DigitalVideoDisc;
+import AimsProject.src.aims.media.Media;
+import AimsProject.src.aims.media.Track;
+import AimsProject.src.aims.screen.CartScreen;
+import AimsProject.src.aims.screen.StoreScreen;
+import AimsProject.src.aims.store.Store;
 public class Aims {
-    // Nguyen Van Phu An 20214982
-    private static Scanner scanner  = new Scanner(System.in);
-    private static int option;
-    private static Store store = new Store();
-    private static Cart cart = new Cart();
-    public static void main(String[] args) {
-        handleMainMenu();
-    }
 
-    public static int handleOption(int optionMax) {
-        do {
-            option = scanner.nextInt();
-            scanner.nextLine();
-        }
-        while (option < 0 || option > optionMax);
-        return option;
-    }
+	private static Scanner sc;
+	private static Store store;
+	private static Cart cart;
+	private static StoreScreen storeScreen;
+	private static CartScreen cartScreen;
 
-    public static void showMenu() {
-        System.out.println("AIMS: ");
-        System.out.println("--------------------------------");
-        System.out.println("1. View store");
-        System.out.println("2. Update store");
-        System.out.println("3. See current cart");
-        System.out.println("0. Exit");
-        System.out.println("--------------------------------");
-        System.out.println("Please choose a number: 0-1-2-3");
-    }
+	public static void main(String[] args) {
+		store = new Store();
+		cart = new Cart();
 
-    public static void storeMenu() {
-        System.out.println("Options: ");
-        System.out.println("--------------------------------");
-        System.out.println("1. See a media’s details");
-        System.out.println("2. Add a media to cart");
-        System.out.println("3. Play a media");
-        System.out.println("4. See current cart");
-        System.out.println("0. Back");
-        System.out.println("--------------------------------");
-        System.out.println("Please choose a number: 0-1-2-3-4");
-    }
+		Media[] sampleMedia = new Media[] {
+			new DigitalVideoDisc("a", "Sci-fi", "me", 125, 31.5f),
+			new DigitalVideoDisc("b", "Romance", "mot nek", 91, 94.63f),
+			new DigitalVideoDisc("c", "Horror", "not me", 96, 47.38f),
+			new CompactDisc("d", "Pop", "Kim Evans", 15, 70.18f) {{
+				addTrack(new Track("d1", 5));
+				addTrack(new Track("fd2", 5));
+				addTrack(new Track("d3d", 5));
+			}},
+			new CompactDisc("h", "Electronic", "Bruce Doty", 7, 93.03f) {{
+				addTrack(new Track("h1", 3));
+				addTrack(new Track("h2", 4));
+			}},
+			new Book("Rain Of The Mountain", 26.07f, new ArrayList<>()) {{
+				addAuthor("Mark Castilleja");
+			}},
+			new Book("Scent Of Lust", 37.82f, new ArrayList<>()) {{
+				addAuthor("Caroline Garcia");
+				addAuthor("Liane Ferland");
+			}},
+			new CompactDisc("22", "Pop", "MONO", 8, 22.22f) {{
+				addTrack(new Track("Intro", 1));
+				addTrack(new Track("Em La", 3));
+				addTrack(new Track("Waiting For You", 4));
+			}},
+			new Book("wallahi", 16, new ArrayList<>()) {{
+				addAuthor("i'm dead");
+			}}
+		};
+		//Nguyen Huy Hoang 20210373
+		for (Media m : sampleMedia) {
+			try {
+				store.addMedia(m);
+			} catch (DuplicatedItemException e) {
+				JOptionPane.showMessageDialog(null, e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+			}
+		}
+		
+		openStoreScreen();
+	}
 
-    public static void cartMenu() {
-        System.out.println("Options: ");
-        System.out.println("--------------------------------");
-        System.out.println("1. Filter medias in cart");
-        System.out.println("2. Sort medias in cart");
-        System.out.println("3. Remove media from cart");
-        System.out.println("4. Play a media");
-        System.out.println("5. Place order");
-        System.out.println("0. Back");
-        System.out.println("--------------------------------");
-        System.out.println("Please choose a number: 0-1-2-3-4-5");
-    }
+	public static Store getStore() {
+		return store;
+	}
 
-    public static void updateStoreMenu() {
-        System.out.println("Options: ");
-        System.out.println("--------------------------------");
-        System.out.println("1. Add to store");
-        System.out.println("2. Remove from store");
-        System.out.println("0. Back");
-        System.out.println("--------------------------------");
-        System.out.println("Please choose a number: 0-1-2");
-        option = handleOption(2);
-        switch (option) {
-            case 1:
+	public static Cart getCart() {
+		return cart;
+	}
 
-                break;
-            case 2:
-                break;
-            default:
-                break;
-        }
-    }
+	public static StoreScreen getStoreScreen() {
+		return storeScreen;
+	}
 
-    public static void handleMainMenu() {
-        showMenu();
-        option = handleOption(3);
-        switch (option) {
-            case 1:
-                handleStoreMenu();
-                break;
-            case 2:
-                handleUpdateStoreMenu();
-                break;
-            case 3:
-                handleCartMenu();
-                break;
-            default:
-                break;
-        }
-    }
-
-    public static void handleStoreMenu() {
-        storeMenu();
-        option = handleOption(4);
-        switch (option) {
-            case 1:
-                seeMediaDetails();
-                break;
-            case 2:
-                addMediaToCart();
-                break;
-            case 3:
-                playMedia();
-                break;
-            case 4:
-                store.printStore();
-                break;
-            default:
-                break;
-        }
-    }
-
-    private static void playMedia() {
-        System.out.print("Enter title: ");
-        String title = scanner.nextLine();
-        Media item = store.findMedia(title);
-        if (item instanceof Playable) {
-            ((Playable) item).play();
-        }
-    }
-
-    private static void addMediaToCart() {
-        System.out.print("Enter title: ");
-        String title = scanner.nextLine();
-        Media item = store.findMedia(title);
-        if (item != null) {
-            cart.addMedia(item);
-        }
-    }
-
-    private static void seeMediaDetails() {
-        System.out.print("Enter title: ");
-        String title = scanner.nextLine();
-        Media item = store.findMedia(title);
-        if (item != null) {
-            System.out.println(item);
-        }
-    }
-
-    public static void handleCartMenu() {
-        cart.printCart();
-        cartMenu();
-        option = handleOption(5);
-        switch (option) {
-            case 1:
-                filterCart();
-                break;
-            case 2:
-                sortCart();
-                break;
-            case 3:
-                removeMediaFromCart();
-                break;
-            case 4:
-                playCartMedia();
-                break;
-            case 5:
-                placeOrder();
-            default:
-                break;
-        }
-    }
-
-    private static void placeOrder() {
-        cart.printCart();
-    }
-
-    private static void playCartMedia() {
-        System.out.print("Enter title: ");
-        String title = scanner.nextLine();
-        Media item = cart.searchByTitle(title);
-        if (item instanceof Playable) {
-            ((Playable) item).play();
-        }
-    }
-
-    private static void removeMediaFromCart() {
-        System.out.print("Enter title: ");
-        String title = scanner.nextLine();
-        Media item = cart.searchByTitle(title);
-        if (item != null) {
-            cart.removeMedia(item);
-        }
-    }
-
-    private static void sortCart() {
-        System.out.println("Options: ");
-        System.out.println("--------------------------------");
-        System.out.println("1. Sort by title");
-        System.out.println("2. Sort by cost");
-        System.out.println("0. Back");
-        System.out.println("--------------------------------");
-        System.out.println("Please choose a number: 0-1-2");
-        option = handleOption(2);
-        switch (option) {
-            case 1:
-                cart.sortByTitle();
-                break;
-            case 2:
-                cart.sortByCost();
-                break;
-            default:
-                break;
-        }
-    }
-
-    private static void filterCart() {
-        System.out.println("Options: ");
-        System.out.println("--------------------------------");
-        System.out.println("1. Filter by id");
-        System.out.println("2. Filter by title");
-        System.out.println("0. Back");
-        System.out.println("--------------------------------");
-        System.out.println("Please choose a number: 0-1-2");
-        option = handleOption(2);
-        int id;
-        String title;
-        Media item;
-        switch (option) {
-            case 1:
-                System.out.print("Enter id: ");
-                id = scanner.nextInt();
-                item = cart.searchByID(id);
-                if (item != null) {
-                    System.out.println(item);
-                }
-                break;
-            case 2:
-                System.out.print("Enter title: ");
-                title = scanner.nextLine();
-                item = cart.searchByTitle(title);
-                if (item != null) {
-                    System.out.println(item);
-                }
-                break;
-            default:
-                break;
-        }
-    }
-
-    public static void handleUpdateStoreMenu() {
-
-    }
+	public static CartScreen getCartScreen() {
+		return cartScreen;
+	}
+	
+	public static void openStoreScreen() {
+		storeScreen = new StoreScreen(store);
+	}
+	
+	public static void closeStoreScreen() {
+		storeScreen.setVisible(false);
+		storeScreen = null;
+	}
+	
+	public static void openCartScreen() {
+		cartScreen = new CartScreen(cart);
+	}
+	
+	public static void closeCartScreen() {
+		cartScreen.setVisible(false);
+		cartScreen = null;
+	}
+	
 }

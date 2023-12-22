@@ -1,5 +1,8 @@
 package AimsProject.src.aims.media;
 
+import AimsProject.src.aims.exception.PlayerException;
+
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,13 +26,27 @@ public class CompactDisc extends Disc implements Playable {
     }
 
     @Override
-    public void play() {
-        System.out.println("Playing disc: " + this.getTitle());
-        for (Track track : tracks) {
-            System.out.println("Playing track: " + track.getTitle());
-            System.out.println("Track length: " + track.getLength());
+    public void play() throws PlayerException {
+        StringBuilder sb = new StringBuilder();
+
+        if (getLength() <= 0) {
+            throw new PlayerException("ERROR: CD length is non-positive!");
+        } else {
+            sb.append("Playing CD: " + this.getTitle() + (this.getArtist().equals("") ? "" : " by " + this.getArtist())
+                    + "\n");
+            sb.append("CD total length: " + this.getLength() + "\n");
+            JOptionPane.showMessageDialog(null, sb.toString(), "Play CD", JOptionPane.INFORMATION_MESSAGE);
+            for (Track t : tracks) {
+                try {
+                    t.play();
+                } catch (PlayerException e) {
+                    throw e;
+                }
+            }
         }
     }
+
+
 
     public String getDirector() {
         return director;
@@ -53,6 +70,10 @@ public class CompactDisc extends Disc implements Playable {
 
     public String getArtist() {
         return artist;
+    }
+
+    public List<Track> getTracks() {
+        return tracks;
     }
 
     public String toString() {

@@ -21,6 +21,15 @@ public abstract class Media {
         nbDigitalVideoDiscs++;
     }
 
+    public boolean isMatch(String title) {
+        String[] keywords = title.split("\\s+");
+        for (String word : keywords) {
+            if (this.title.toLowerCase().contains(word.toLowerCase()))
+                return true;
+        }
+        return false;
+    }
+
     public boolean equals(Media item){
         return this.getTitle().equals(item.getTitle());
     }

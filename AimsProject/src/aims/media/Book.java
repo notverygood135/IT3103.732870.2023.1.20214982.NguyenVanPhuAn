@@ -20,6 +20,10 @@ public class Book extends Media {
         authors.remove(author);
     }
 
+    public List<String> getAuthors() {
+        return authors;
+    }
+
     public String toString() {
         return "Book - " + getTitle() + " - " + getCost() + " $";
     }

@@ -1,15 +1,23 @@
 package AimsProject.src.aims.cart;
 
+import AimsProject.src.aims.exception.DuplicatedItemException;
 import AimsProject.src.aims.media.Media;
 import AimsProject.src.aims.media.MediaComparatorByCostTitle;
 import AimsProject.src.aims.media.MediaComparatorByTitleCost;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
+import javax.naming.LimitExceededException;
 import java.util.ArrayList;
 
 public class Cart {
     //Nguyen Van Phu An 20214982
-    public static final int MAX_ITEM = 20; // Maximum number of discs in the cart
-    private ArrayList<Media> itemsOrdered = new ArrayList<>(); // Array list representing the discs in the cart
+    public static final int MAX_NUMBERS_ORDERED = 20; // Maximum number of discs in the cart
+    private ObservableList<Media> itemsOrdered = FXCollections.observableArrayList(); // Array list representing the discs in the cart
+
+    public ObservableList<Media> getItemsOrdered() {
+        return itemsOrdered;
+    }
 
     public void printCart() {
         System.out.println("***********************CART***********************");
@@ -48,15 +56,15 @@ public class Cart {
         itemsOrdered.sort(Media.COMPARE_BY_COST_TITLE);
     }
 
-    public void addMedia(Media item) {
-        // Add disc to cart if the cart is not full
-        if (itemsOrdered.size() < MAX_ITEM) {
-            itemsOrdered.add(item);
-            System.out.println("Item " + item.getTitle() + " added to cart");
+    public void addMedia(Media media) throws LimitExceededException, DuplicatedItemException {
+        if (itemsOrdered.size() == MAX_NUMBERS_ORDERED) {
+            throw new LimitExceededException("ERROR: The number of media has reached its limit.");
         }
-        else {
-            System.out.println("Cart is already full!");
+
+        if (itemsOrdered.contains(media)) {
+            throw new DuplicatedItemException("ERROR: Item already in cart.");
         }
+        itemsOrdered.add(media);
     }
 
     public void removeMedia(Media item) {
@@ -88,5 +96,17 @@ public class Cart {
             System.out.println(item.getId() + " " + item.getTitle());
         }
         System.out.println("Total cost: " + calculateTotalCost());
+    }
+
+    public float totalCost() {
+        float total = 0.0f;
+        for (Media media : itemsOrdered) {
+            total += media.getCost();
+        }
+        return totalCost();
+    }
+
+    public void placeOrder() {
+        itemsOrdered.clear();
     }
 }

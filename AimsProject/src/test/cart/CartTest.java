@@ -1,15 +1,17 @@
 package AimsProject.src.test.cart;
 
+import AimsProject.src.aims.exception.DuplicatedItemException;
 import AimsProject.src.aims.media.Book;
 import AimsProject.src.aims.media.CompactDisc;
 import AimsProject.src.aims.media.DigitalVideoDisc;
 import AimsProject.src.aims.cart.Cart;
 
+import javax.naming.LimitExceededException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class CartTest {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws DuplicatedItemException, LimitExceededException {
         System.out.println("Nguyen Van Phu An 20214982");
         Cart cart = new Cart();
 
